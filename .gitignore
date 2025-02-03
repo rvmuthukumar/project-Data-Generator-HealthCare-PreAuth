@@ -1,3 +1,11 @@
+
+# Environments
+.env/
+
+# Data files generated
+Data/PreAuthForms/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

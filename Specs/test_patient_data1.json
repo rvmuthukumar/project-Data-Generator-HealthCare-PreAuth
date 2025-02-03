@@ -1,0 +1,57 @@
+{
+    "first_name": "Robert",
+    "last_name": "Martinez",
+    "middle_initial": "A",
+    "member_id": "870718763",
+    "birth_date": "09/25/1954",
+    "phone_number": "555-992-1613",
+    "home_address": "2316 Main St",
+    "city": "Detroit",
+    "state": "MI",
+    "zip_code": "12641",
+    "requesting_provider_name": "Dr. Adams",
+    "provider_phone": "555-733-4725",
+    "provider_fax": "555-438-5035",
+    "provider_npi": "8887890198",
+    "provider_tax_id": "156431723",
+    "provider_address": "3475 Health Plaza",
+    "facility_name": "City Hospital",
+    "facility_address": "7532 Clinic Ave",
+    "diagnoses": [
+        {
+            "ICD-10": "520.8"
+        },
+        {
+            "ICD-10": "357.9"
+        },
+        {
+            "ICD-10": "539.2"
+        },
+        {
+            "ICD-10": "535.7"
+        },
+        {
+            "ICD-10": "606.7"
+        }
+    ],
+    "procedures": [
+        {
+            "CPT": "54944"
+        },
+        {
+            "CPT": "62553"
+        },
+        {
+            "CPT": "11400"
+        },
+        {
+            "CPT": "47490"
+        },
+        {
+            "CPT": "16957"
+        }
+    ],
+    "reason_for_referral": "Patient requires specialized treatment for chronic illness.",
+    "patient_signature": "Robert Martinez",
+    "signature_date": "01/16/2024"
+}
