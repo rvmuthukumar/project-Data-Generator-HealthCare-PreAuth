@@ -38,6 +38,8 @@ def create_comprehensive_prior_auth_form(output_path,data):
     ]
 
     for label, value, x, y, field_width in patient_fields:
+        c.setFont("Helvetica-Bold", 10)
+        c.drawString(x, y, label)
         form.textfield(name=label, x=x, y=y - 20, width=field_width, height=15, value=value, tooltip=label)
 
     # Provider Information
@@ -57,6 +59,7 @@ def create_comprehensive_prior_auth_form(output_path,data):
     ]
 
     for label, value, x, y, field_width in provider_fields:
+        c.drawString(x, y, label )
         form.textfield(name=label, x=x, y=y - 20, width=field_width, height=15, value=value, tooltip=label)
 
     # Diagnosis & Procedures
@@ -65,7 +68,10 @@ def create_comprehensive_prior_auth_form(output_path,data):
     c.setFont("Helvetica", 10)
     diagnosis_y = height - 480
     for i in range(5):
+        c.drawString(50, diagnosis_y, f"Diagnosis {i+1} ICD-10 Code")        
         form.textfield(name=f"Diagnosis {i+1} ICD-10", x=50, y=diagnosis_y - 20, width=250, height=15, value=data['diagnoses'][i]['ICD-10'])
+        
+        c.drawString(300, diagnosis_y, f"Procedure {i+1} CPT Code")
         form.textfield(name=f"Procedure {i+1} CPT", x=320, y=diagnosis_y - 20, width=250, height=15, value=data['procedures'][i]['CPT'])
         diagnosis_y -= 30
 

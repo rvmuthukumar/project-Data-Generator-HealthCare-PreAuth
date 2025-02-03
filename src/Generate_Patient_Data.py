@@ -38,9 +38,9 @@ def generate_test_data(num_records, output_path):
             "provider_fax": f"555-{random.randint(100, 999)}-{random.randint(1000, 9999)}",
             "provider_npi": str(random.randint(1000000000, 9999999999)),
             "provider_tax_id": str(random.randint(100000000, 999999999)),
-            "provider_address": f"{random.randint(100, 9999)} {random.choice(['Medical Center', 'Health Plaza', 'Clinic'])}",
+            "provider_address": f"{random.randint(100, 9999)} {random.choice(['Medical Center', 'Health Plaza', 'Clinic'])+", " + cities[state] +", "+ state}",
             "facility_name": f"{random.choice(['City Hospital', 'Wellness Clinic', 'Medical Center'])}",
-            "facility_address": f"{random.randint(100, 9999)} {random.choice(['Health St', 'Wellness Blvd', 'Clinic Ave'])}",
+            "facility_address": f"{random.randint(100, 9999)} {random.choice(['Health St', 'Wellness Blvd', 'Clinic Ave'])+", " + cities[state] +", "+ state}",
             "diagnoses": [{"ICD-10": f"{random.randint(100, 999)}.{random.randint(0, 9)}"} for _ in range(5)],
             "procedures": [{"CPT": f"{random.randint(10000, 99999)}"} for _ in range(5)],
             "reason_for_referral": random.choice([
