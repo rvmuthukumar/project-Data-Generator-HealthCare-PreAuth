@@ -1,0 +1,9 @@
+{
+    "s3_bucket_name": "my-pa-test-bucket",
+    "output_folder": "..\\Data\\PreAuthForms",
+    "form_count_range": [10, 100],
+    "aws_region": "us-east-1",
+    "s3_upload_enabled": true,
+    "local_cleanup_after_upload": false
+  }
+  
