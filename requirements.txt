@@ -1,0 +1,5 @@
+aws-cdk-lib==2.178.2
+constructs>=10.0.0,<11.0.0
+PyPDF2==3.0.1
+Faker==15.3.4
+boto3==1.36.21

@@ -1,0 +1,113 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "PdfDataGeneratorStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "PdfDataGeneratorStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "PdfDataGeneratorStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "PdfDataGeneratorStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/58995e3e082143fa810f9285a76971e15b077c44f6b1ac07223df681dc723969.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "PdfDataGeneratorStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "PdfDataGeneratorStack.assets"
+      ],
+      "metadata": {
+        "/PdfDataGeneratorStack/NoOfPatientsRangeParam.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "NoOfPatientsRangeParamParameter"
+          }
+        ],
+        "/PdfDataGeneratorStack/OutputS3BucketParam.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OutputS3BucketParamParameter"
+          }
+        ],
+        "/PdfDataGeneratorStack/PdfDataGeneratorLambda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PdfDataGeneratorLambdaServiceRole07DE8541"
+          }
+        ],
+        "/PdfDataGeneratorStack/PdfDataGeneratorLambda/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PdfDataGeneratorLambdaServiceRoleDefaultPolicy8E76FB64"
+          }
+        ],
+        "/PdfDataGeneratorStack/PdfDataGeneratorLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PdfDataGeneratorLambda3A3FA79E"
+          }
+        ],
+        "/PdfDataGeneratorStack/DailyPdfGenRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DailyPdfGenRule9402B5A7"
+          }
+        ],
+        "/PdfDataGeneratorStack/DailyPdfGenRule/AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DailyPdfGenRuleAllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B41F270409"
+          }
+        ],
+        "/PdfDataGeneratorStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/PdfDataGeneratorStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/PdfDataGeneratorStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/PdfDataGeneratorStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "PdfDataGeneratorStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

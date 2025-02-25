@@ -1,0 +1,32 @@
+{
+  "version": "39.0.0",
+  "files": {
+    "0bdc2b0d8755978705d0aaa64bbe038c70717cb7d6e72432c1d26e07681bccfe": {
+      "source": {
+        "path": "asset.0bdc2b0d8755978705d0aaa64bbe038c70717cb7d6e72432c1d26e07681bccfe",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "0bdc2b0d8755978705d0aaa64bbe038c70717cb7d6e72432c1d26e07681bccfe.zip",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "58995e3e082143fa810f9285a76971e15b077c44f6b1ac07223df681dc723969": {
+      "source": {
+        "path": "PdfDataGeneratorStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "58995e3e082143fa810f9285a76971e15b077c44f6b1ac07223df681dc723969.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

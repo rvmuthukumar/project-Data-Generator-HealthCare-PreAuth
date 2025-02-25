@@ -2,6 +2,9 @@
 # Environments
 .env/
 
+# Temp folder
+temp/
+
 # Data files generated
 Old-Code/
 

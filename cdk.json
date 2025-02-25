@@ -1,0 +1,8 @@
+{
+    "app": "python -m infrastructure.app",
+    "context": {
+      "aws-cdk:enableDiffNoFail": "true",
+      "@aws-cdk/core:newStyleStackSynthesis": "true"
+    }
+  }
+  

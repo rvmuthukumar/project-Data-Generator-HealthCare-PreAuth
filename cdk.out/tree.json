@@ -1,0 +1,394 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "PdfDataGeneratorStack": {
+        "id": "PdfDataGeneratorStack",
+        "path": "PdfDataGeneratorStack",
+        "children": {
+          "NoOfPatientsRangeParam.Parameter": {
+            "id": "NoOfPatientsRangeParam.Parameter",
+            "path": "PdfDataGeneratorStack/NoOfPatientsRangeParam.Parameter",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.178.2"
+            }
+          },
+          "NoOfPatientsRangeParam": {
+            "id": "NoOfPatientsRangeParam",
+            "path": "PdfDataGeneratorStack/NoOfPatientsRangeParam",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.178.2",
+              "metadata": []
+            }
+          },
+          "OutputS3BucketParam.Parameter": {
+            "id": "OutputS3BucketParam.Parameter",
+            "path": "PdfDataGeneratorStack/OutputS3BucketParam.Parameter",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.178.2"
+            }
+          },
+          "OutputS3BucketParam": {
+            "id": "OutputS3BucketParam",
+            "path": "PdfDataGeneratorStack/OutputS3BucketParam",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.178.2",
+              "metadata": []
+            }
+          },
+          "PdfDataGeneratorLambda": {
+            "id": "PdfDataGeneratorLambda",
+            "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.178.2",
+                      "metadata": []
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.178.2"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "ssm:DescribeParameters",
+                                    "ssm:GetParameters",
+                                    "ssm:GetParameter",
+                                    "ssm:GetParameterHistory"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":ssm:",
+                                        {
+                                          "Ref": "AWS::Region"
+                                        },
+                                        ":",
+                                        {
+                                          "Ref": "AWS::AccountId"
+                                        },
+                                        ":parameter/pre_auth_forms/No_Of_Patients_Range"
+                                      ]
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Action": [
+                                    "ssm:DescribeParameters",
+                                    "ssm:GetParameters",
+                                    "ssm:GetParameter",
+                                    "ssm:GetParameterHistory"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":ssm:",
+                                        {
+                                          "Ref": "AWS::Region"
+                                        },
+                                        ":",
+                                        {
+                                          "Ref": "AWS::AccountId"
+                                        },
+                                        ":parameter/pre_auth_forms/Output_S3_Bucket_Name"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "PdfDataGeneratorLambdaServiceRoleDefaultPolicy8E76FB64",
+                            "roles": [
+                              {
+                                "Ref": "PdfDataGeneratorLambdaServiceRole07DE8541"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.178.2"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.178.2",
+                      "metadata": []
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.178.2",
+                  "metadata": []
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.178.2"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.178.2",
+                      "metadata": []
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.178.2"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                      },
+                      "s3Key": "0bdc2b0d8755978705d0aaa64bbe038c70717cb7d6e72432c1d26e07681bccfe.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "PARAM_PATIENT_RANGE": "/pre_auth_forms/No_Of_Patients_Range",
+                        "PARAM_S3_BUCKET": "/pre_auth_forms/Output_S3_Bucket_Name"
+                      }
+                    },
+                    "handler": "main.lambda_handler",
+                    "role": {
+                      "Fn::GetAtt": [
+                        "PdfDataGeneratorLambdaServiceRole07DE8541",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "python3.9"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.178.2"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.178.2",
+              "metadata": []
+            }
+          },
+          "DailyPdfGenRule": {
+            "id": "DailyPdfGenRule",
+            "path": "PdfDataGeneratorStack/DailyPdfGenRule",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "PdfDataGeneratorStack/DailyPdfGenRule/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                  "aws:cdk:cloudformation:props": {
+                    "scheduleExpression": "rate(1 day)",
+                    "state": "ENABLED",
+                    "targets": [
+                      {
+                        "id": "Target0",
+                        "arn": {
+                          "Fn::GetAtt": [
+                            "PdfDataGeneratorLambda3A3FA79E",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_events.CfnRule",
+                  "version": "2.178.2"
+                }
+              },
+              "AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4": {
+                "id": "AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4",
+                "path": "PdfDataGeneratorStack/DailyPdfGenRule/AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                  "aws:cdk:cloudformation:props": {
+                    "action": "lambda:InvokeFunction",
+                    "functionName": {
+                      "Fn::GetAtt": [
+                        "PdfDataGeneratorLambda3A3FA79E",
+                        "Arn"
+                      ]
+                    },
+                    "principal": "events.amazonaws.com",
+                    "sourceArn": {
+                      "Fn::GetAtt": [
+                        "DailyPdfGenRule9402B5A7",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                  "version": "2.178.2"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_events.Rule",
+              "version": "2.178.2",
+              "metadata": []
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "PdfDataGeneratorStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "PdfDataGeneratorStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.178.2"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "PdfDataGeneratorStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.178.2"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "PdfDataGeneratorStack/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.178.2"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "PdfDataGeneratorStack/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.178.2"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.178.2"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.4.2"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.178.2"
+    }
+  }
+}
