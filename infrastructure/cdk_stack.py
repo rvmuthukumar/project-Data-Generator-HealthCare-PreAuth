@@ -14,7 +14,8 @@ from aws_cdk import (
     aws_events as events,
     aws_events_targets as targets,
     aws_ssm as ssm,
-    aws_iam as iam,
+    aws_iam as iam
+   
 )
 from constructs import Construct
 import aws_cdk as cdk
@@ -36,8 +37,8 @@ class PdfDataGeneratorStack(Stack):
         # Create Lambda function
         lambda_fn = _lambda.Function(
             self,
-            "PdfDataGeneratorLambda",
-            runtime=_lambda.Runtime.PYTHON_3_9,
+            "PdfDataGeneratorLambda",            
+            runtime=_lambda.Runtime.PYTHON_3_9,            
             handler="main.lambda_handler",  # main.py's function
             code=_lambda.Code.from_asset("lambda_src/pdf_data_generator"),
             environment={
@@ -60,7 +61,7 @@ class PdfDataGeneratorStack(Stack):
         # Create EventBridge rule to trigger daily
         rule = events.Rule(
             self,
-            "DailyPdfGenRule",
-            schedule=events.Schedule.rate(cdk.Duration.days(1))
+            "OnceEvery3HrsPdfGenRule",
+            schedule=events.Schedule.rate(cdk.Duration.hours(3))
         )
         rule.add_target(targets.LambdaFunction(lambda_fn))

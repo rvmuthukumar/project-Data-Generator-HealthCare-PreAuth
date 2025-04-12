@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/58995e3e082143fa810f9285a76971e15b077c44f6b1ac07223df681dc723969.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/569dcaf31f9b7352fd31cf463df2e8fddafe1636bfd9ad3a53f0a3156a013099.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -64,16 +64,16 @@
             "data": "PdfDataGeneratorLambda3A3FA79E"
           }
         ],
-        "/PdfDataGeneratorStack/DailyPdfGenRule/Resource": [
+        "/PdfDataGeneratorStack/OnceEvery3HrsPdfGenRule/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DailyPdfGenRule9402B5A7"
+            "data": "OnceEvery3HrsPdfGenRuleF7BD12C8"
           }
         ],
-        "/PdfDataGeneratorStack/DailyPdfGenRule/AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4": [
+        "/PdfDataGeneratorStack/OnceEvery3HrsPdfGenRule/AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DailyPdfGenRuleAllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B41F270409"
+            "data": "OnceEvery3HrsPdfGenRuleAllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4898AE137"
           }
         ],
         "/PdfDataGeneratorStack/CDKMetadata/Default": [

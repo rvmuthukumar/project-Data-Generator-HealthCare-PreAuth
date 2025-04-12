@@ -3,3 +3,5 @@ C:\Source Code\Projects\project-Data-Generator-HealthCare-PreAuth>python -m venv
 C:\Source Code\Projects\project-Data-Generator-HealthCare-PreAuth>.\.env\scripts\activate
 
 
+# CDK Commands
+cdk bootstrap --profile mramaswamy

@@ -133,7 +133,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "0bdc2b0d8755978705d0aaa64bbe038c70717cb7d6e72432c1d26e07681bccfe.zip"
+     "S3Key": "ba65c9b97f2d6a5facab468311606fed72ed37d414aebeb4ea254eeb64f86c55.zip"
     },
     "Environment": {
      "Variables": {
@@ -156,15 +156,15 @@
    ],
    "Metadata": {
     "aws:cdk:path": "PdfDataGeneratorStack/PdfDataGeneratorLambda/Resource",
-    "aws:asset:path": "asset.0bdc2b0d8755978705d0aaa64bbe038c70717cb7d6e72432c1d26e07681bccfe",
+    "aws:asset:path": "asset.ba65c9b97f2d6a5facab468311606fed72ed37d414aebeb4ea254eeb64f86c55",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
   },
-  "DailyPdfGenRule9402B5A7": {
+  "OnceEvery3HrsPdfGenRuleF7BD12C8": {
    "Type": "AWS::Events::Rule",
    "Properties": {
-    "ScheduleExpression": "rate(1 day)",
+    "ScheduleExpression": "rate(3 hours)",
     "State": "ENABLED",
     "Targets": [
      {
@@ -179,10 +179,10 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "PdfDataGeneratorStack/DailyPdfGenRule/Resource"
+    "aws:cdk:path": "PdfDataGeneratorStack/OnceEvery3HrsPdfGenRule/Resource"
    }
   },
-  "DailyPdfGenRuleAllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B41F270409": {
+  "OnceEvery3HrsPdfGenRuleAllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4898AE137": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
@@ -195,13 +195,13 @@
     "Principal": "events.amazonaws.com",
     "SourceArn": {
      "Fn::GetAtt": [
-      "DailyPdfGenRule9402B5A7",
+      "OnceEvery3HrsPdfGenRuleF7BD12C8",
       "Arn"
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "PdfDataGeneratorStack/DailyPdfGenRule/AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4"
+    "aws:cdk:path": "PdfDataGeneratorStack/OnceEvery3HrsPdfGenRule/AllowEventRulePdfDataGeneratorStackPdfDataGeneratorLambdaCD2962B4"
    }
   },
   "CDKMetadata": {
